@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e6">
+  <meta name="description" content="A seven-day Southwest national parks road trip through Nevada, Arizona, and Utah, November 21–27, 2026.">
+  <title>Southwest National Parks Road Trip · Nov 21–27, 2026</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #252c28;
+      --muted: #69736c;
+      --paper: #fffdf8;
+      --canvas: #f1eee5;
+      --line: #e4dfd2;
+      --pine: #31594a;
+      --pine-dark: #234536;
+      --clay: #a85e3d;
+      --gold: #d9a958;
+      --shadow: 0 18px 50px rgba(41, 48, 41, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 26px; }
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.68;
+    }
+    a { color: var(--pine); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--clay); }
+    .masthead {
+      min-height: 112px;
+      padding: 24px clamp(20px, 4vw, 58px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      color: #f9f6ed;
+      background: linear-gradient(110deg, #213e35, #31594a 65%, #52705c);
+      border-bottom: 4px solid var(--gold);
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-mark {
+      width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid rgba(255,255,255,.4);
+      border-radius: 50%; display: grid; place-items: center; color: #f3cc81; font-size: 21px;
+    }
+    .brand-name { font-size: 14px; font-weight: 750; letter-spacing: .11em; text-transform: uppercase; }
+    .brand-sub { color: rgba(255,255,255,.7); font-size: 12px; margin-top: 1px; }
+    .masthead-date { text-align: right; font-size: 13px; color: rgba(255,255,255,.78); }
+    .masthead-date strong { display: block; color: white; font-size: 15px; font-weight: 650; }
+    .layout {
+      width: min(1500px, 100%);
+      margin: 0 auto;
+      padding: 32px clamp(16px, 3vw, 40px) 70px;
+      display: grid;
+      grid-template-columns: 255px minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(22px, 3vw, 42px);
+    }
+    aside {
+      position: sticky;
+      top: 22px;
+      align-self: start;
+    }
+    .toc-panel {
+      max-height: calc(100vh - 44px);
+      overflow: hidden;
+      border: 1px solid #ded9cc;
+      border-radius: 16px;
+      background: rgba(255,253,248,.94);
+      box-shadow: 0 8px 28px rgba(41,48,41,.06);
+    }
+    .toc-panel summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 17px 18px 13px;
+      cursor: pointer;
+      color: var(--pine-dark);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .toc-panel summary::-webkit-details-marker { display: none; }
+    .toc-panel summary::after { content: "⌄"; color: var(--clay); font-size: 17px; }
+    .toc-panel[open] summary::after { content: "⌃"; }
+    .toc-links {
+      padding: 0 10px 13px;
+      max-height: calc(100vh - 105px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #ccc4b3 transparent;
+    }
+    .toc-link {
+      display: block;
+      position: relative;
+      padding: 7px 9px 7px 12px;
+      border-radius: 7px;
+      color: #525e56;
+      text-decoration: none;
+      font-size: 12.5px;
+      line-height: 1.42;
+      transition: background .15s ease, color .15s ease;
+    }
+    .toc-link:hover { background: #f2f0e8; color: var(--pine-dark); }
+    .toc-link.active { background: #eaf0e8; color: var(--pine-dark); font-weight: 700; }
+    .toc-link.active::before { content: ""; position: absolute; left: 2px; top: 9px; bottom: 9px; width: 3px; border-radius: 3px; background: var(--clay); }
+    .toc-sub { padding-left: 25px; color: #798078; font-size: 11.5px; }
+    .toc-day { margin-top: 4px; font-weight: 680; }
+    main { min-width: 0; }
+    article {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 54px) clamp(20px, 5vw, 68px) 66px;
+      border: 1px solid #e9e4d9;
+      border-radius: 19px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    article > h1 {
+      margin: 0 0 13px;
+      max-width: 760px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #253b32;
+      font-size: clamp(37px, 5vw, 59px);
+      letter-spacing: -.045em;
+      line-height: 1.05;
+    }
+    article > h1 + p {
+      color: var(--clay);
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: .025em;
+    }
+    article > h1 + p::before { content: "ROAD TRIP  /  "; color: #889087; font-size: 10px; letter-spacing: .12em; }
+    article p { margin: 13px 0; }
+    article ul, article ol { padding-left: 1.35rem; }
+    article li { padding-left: 3px; margin: 6px 0; }
+    article li::marker { color: var(--clay); }
+    article h2 {
+      margin: 55px 0 15px;
+      padding-top: 19px;
+      border-top: 1px solid var(--line);
+      color: #283e34;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 3vw, 36px);
+      line-height: 1.18;
+      letter-spacing: -.025em;
+      scroll-margin-top: 24px;
+    }
+    article h3 {
+      margin: 31px 0 11px;
+      color: var(--pine-dark);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.3;
+      scroll-margin-top: 24px;
+    }
+    article h4 { margin: 24px 0 8px; color: var(--clay); font-size: 15px; }
+    article strong { color: #34463c; }
+    article hr { border: 0; border-top: 1px solid var(--line); margin: 35px 0; }
+    article img {
+      display: block;
+      max-width: 100%;
+      max-height: 390px;
+      margin: 20px auto;
+      border-radius: 13px;
+      object-fit: cover;
+      background: #e7e2d6;
+    }
+    article p:has(> img) { margin: 20px 0 24px; }
+    article p:has(> img) img { width: 100%; }
+    article table {
+      width: 100%;
+      margin: 22px 0 28px;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.48;
+    }
+    article th, article td { min-width: 105px; padding: 12px 13px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    article th { color: #f9f6ed; background: var(--pine); font-size: 11px; font-weight: 750; letter-spacing: .045em; }
+    article tbody tr:nth-child(even) { background: #f7f5ee; }
+    article tr:last-child td { border-bottom: 0; }
+    article blockquote {
+      margin: 22px 0; padding: 13px 19px; border-left: 3px solid var(--gold);
+      background: #f8f4e9; color: #5c625a;
+    }
+    .day-map {
+      margin: 28px 0 46px;
+      padding: 17px;
+      border: 1px solid #e4dfd2;
+      border-radius: 14px;
+      background: #f8f6ef;
+    }
+    .day-map h4 { margin: 0 0 4px; color: #31594a; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+    .day-map p { margin: 5px 0 12px; color: #69736c; font-size: 12px; }
+    .day-map iframe { margin-top: 12px; }
+    .day-map .map-link { margin: 10px 0 0; text-align: right; }
+    article iframe { display: block; width: 100%; max-width: 100%; height: min(58vw, 470px); min-height: 300px; border: 0; border-radius: 14px; }
+    footer {
+      max-width: 980px; margin: 17px auto 0; padding: 0 12px;
+      color: #788078; font-size: 11px; text-align: center;
+    }
+    @media (max-width: 920px) {
+      .layout { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 14px 12px 38px; }
+      aside { z-index: 5; top: 8px; }
+      .toc-panel { max-height: 45vh; }
+      .toc-panel[open] .toc-links { max-height: calc(45vh - 55px); }
+      .toc-panel:not([open]) summary { padding: 12px 16px; }
+      article { padding: 30px clamp(18px, 5vw, 38px) 45px; border-radius: 15px; }
+      article h2 { margin-top: 40px; }
+      .masthead { min-height: 88px; padding: 17px 20px; }
+    }
+    @media (max-width: 520px) {
+      .masthead-date { font-size: 11px; }
+      .masthead-date strong { font-size: 12px; }
+      .brand-mark { width: 36px; height: 36px; flex-basis: 36px; }
+      .brand-name { font-size: 11px; }
+      .brand-sub { font-size: 10px; }
+      article table { display: block; overflow-x: auto; }
+      article th, article td { min-width: 125px; }
+      .day-map {
+      margin: 28px 0 46px;
+      padding: 17px;
+      border: 1px solid #e4dfd2;
+      border-radius: 14px;
+      background: #f8f6ef;
+    }
+    .day-map h4 { margin: 0 0 4px; color: #31594a; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+    .day-map p { margin: 5px 0 12px; color: #69736c; font-size: 12px; }
+    .day-map iframe { margin-top: 12px; }
+    .day-map .map-link { margin: 10px 0 0; text-align: right; }
+    article iframe { min-height: 260px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">✦</div>
+      <div><div class="brand-name">Southwest Field Notes</div><div class="brand-sub">A winter parks road trip</div></div>
+    </div>
+    <div class="masthead-date"><strong>November 21–27, 2026</strong>Nevada · Arizona · Utah</div>
+  </header>
+  <div class="layout">
+    <aside aria-label="Page navigation">
+      <details id="tocPanel" class="toc-panel" open>
+        <summary>On this page</summary>
+        <nav class="toc-links" aria-label="Table of contents">
+<a class="toc-link" href="#at-a-glance">At a glance</a>
+<a class="toc-link" href="#day-by-day-itinerary">Day-by-day itinerary</a>
+<a class="toc-link toc-day" href="#day-1-saturday-november-21">Day 1 — Saturday, November 21</a>
+<a class="toc-link toc-sub" href="#las-vegas-williams">Las Vegas → Williams</a>
+<a class="toc-link toc-day" href="#day-2-sunday-november-22">Day 2 — Sunday, November 22</a>
+<a class="toc-link toc-sub" href="#williams-grand-canyon-south-rim-valle">Williams → Grand Canyon South Rim → Valle</a>
+<a class="toc-link toc-day" href="#day-3-monday-november-23">Day 3 — Monday, November 23</a>
+<a class="toc-link toc-sub" href="#valle-grand-canyon-monument-valley">Valle → Grand Canyon → Monument Valley</a>
+<a class="toc-link toc-day" href="#day-4-tuesday-november-24">Day 4 — Tuesday, November 24</a>
+<a class="toc-link toc-sub" href="#kayenta-horseshoe-bend-bryce">Kayenta → Horseshoe Bend → Bryce</a>
+<a class="toc-link toc-day" href="#day-5-wednesday-november-25">Day 5 — Wednesday, November 25</a>
+<a class="toc-link toc-sub" href="#bryce-canyon-springdale">Bryce Canyon → Springdale</a>
+<a class="toc-link toc-day" href="#day-6-thursday-november-26-thanksgiving">Day 6 — Thursday, November 26</a>
+<a class="toc-link toc-sub" href="#zion-national-park-thanksgiving">Zion · Thanksgiving</a>
+<a class="toc-link toc-day" href="#day-7-friday-november-27">Day 7 — Friday, November 27</a>
+<a class="toc-link toc-sub" href="#springdale-las-vegas-home">Springdale → Las Vegas → home</a>
+<a class="toc-link" href="#expenses">Expenses</a>
+<a class="toc-link" href="#booking-budget-and-practical-details">Booking, budget, and practical details</a>
+<a class="toc-link toc-sub" href="#accommodation-plan">Accommodation plan</a>
+<a class="toc-link toc-sub" href="#essential-preparation-checklist">Preparation checklist</a>
+<a class="toc-link" href="#final-trip-summary">Final trip summary</a>
+<a class="toc-link" href="#google-maps-route">Google Maps route</a>
+        </nav>
+      </details>
+    </aside>
+    <main>
+      <article>
+  <h1 id="southwest-national-parks-road-trip">Southwest National Parks Road Trip</h1>
+  <p>November 21–27, 2026 · 7 days / 6 nights · Round-trip flights via Las Vegas (LAS)</p>
+  <p>A focused week through northern Arizona and southern Utah: Grand Canyon South Rim, Monument Valley, a single Horseshoe Bend stop in Page, Bryce Canyon, and Zion. The route keeps all six booked nights, removes the Page-area tour and Four Corners detour, and finishes with a half day in Zion followed by an overnight in Las Vegas before the flight home.</p>
+  <ul>
+    <li><strong>Booked:</strong> Ramada by Wyndham Williams, Nov 21–22 ($99.22); Grand Canyon Inn, Nov 22–23 ($140.83); Hampton Inn Kayenta, Nov 23–24 ($147.41); Bryce area, Nov 24–25 ($96.30); Springdale, Nov 25–26 ($206.91); Las Vegas, Nov 26–27 ($127.71).</li>
+    <li><strong>Rental car:</strong> Booked at Harry Reid International Airport (LAS), pickup Nov 21 at 2:30 PM and return Nov 27 at 12:00 PM ($494.20).</li>
+    <li><strong>Page:</strong> Stop at Horseshoe Bend on the drive to Bryce; allow 60–90 minutes. No Antelope Canyon tour or overnight in Page.</li>
+    <li><strong>Flight:</strong> Return from Las Vegas on Nov 27; aim for a departure at 3 PM or later.</li>
+  </ul>
+
+  <h2 id="at-a-glance">At a glance</h2>
+  <table>
+    <thead><tr><th>Date</th><th>Plan</th><th>Overnight</th></tr></thead>
+    <tbody>
+      <tr><td>Sat, Nov 21</td><td>Arrive in Las Vegas; drive to Williams</td><td>Williams · booked</td></tr>
+      <tr><td>Sun, Nov 22</td><td>Grand Canyon South Rim</td><td>Valle · booked</td></tr>
+      <tr><td>Mon, Nov 23</td><td>Desert View Drive and Monument Valley</td><td>Kayenta · booked</td></tr>
+      <tr><td>Tue, Nov 24</td><td>Kayenta → Horseshoe Bend → Bryce area</td><td>Bryce area · booked</td></tr>
+      <tr><td>Wed, Nov 25</td><td>Bryce viewpoints, then drive to Springdale</td><td>Springdale · booked</td></tr>
+      <tr><td>Thu, Nov 26</td><td>Half day in Zion, then drive to Las Vegas in the afternoon · Thanksgiving</td><td>Las Vegas · booked $127.71</td></tr>
+      <tr><td>Fri, Nov 27</td><td>Drive to Las Vegas; return car; fly home</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="day-by-day-itinerary">Day-by-day itinerary</h2>
+  <p>Drive times are estimates before meal, fuel, sightseeing, and weather stops. Late November has short daylight, and Bryce can have winter road or trail conditions.</p>
+
+  <h2 id="day-1-saturday-november-21">Day 1 — Saturday, November 21</h2>
+  <section class="day-map" aria-label="Day 1 map">
+    <h4>Las Vegas → Williams</h4><p>Allow about 3.5–4 hours of driving after rental pickup.</p>
+    <iframe title="Google Maps: Las Vegas to Williams" src="https://maps.google.com/maps?saddr=Harry+Reid+International+Airport%2C+Las+Vegas%2C+NV&amp;daddr=950+N+Grand+Canyon+Blvd%2C+Williams%2C+AZ+86046&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <p class="map-link"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Harry%20Reid%20International%20Airport%2C%20Las%20Vegas%2C%20NV&amp;destination=950%20N%20Grand%20Canyon%20Blvd%2C%20Williams%2C%20AZ%2086046&amp;travelmode=driving" target="_blank" rel="noopener">Open in Google Maps ↗</a></p>
+  </section>
+  <h3 id="las-vegas-williams">Las Vegas → Williams</h3>
+  <ul>
+    <li>Arrive in Las Vegas before noon, collect the rental car, and pick up groceries, water, and snacks.</li>
+    <li>Drive via US-93 and I-40 to Williams. Take breaks and avoid adding sightseeing if the flight or rental pickup runs late.</li>
+    <li>Stay at the <a href="https://maps.app.goo.gl/fXGqTTaxtPZ1YKCS7" target="_blank" rel="noopener">Ramada by Wyndham Williams/Grand Canyon Area</a>. <strong>Booked for Nov 21–22 · $99.22.</strong></li>
+  </ul>
+
+  <h2 id="day-2-sunday-november-22">Day 2 — Sunday, November 22</h2>
+  <section class="day-map" aria-label="Day 2 map">
+    <h4>Williams → Grand Canyon South Rim → Valle</h4><p>About 1 hour to the South Rim, then roughly 45 minutes to Valle, plus time in the park.</p>
+    <iframe title="Google Maps: Williams to Grand Canyon South Rim and Valle" src="https://maps.google.com/maps?saddr=Ramada+by+Wyndham+Williams%2C+AZ&amp;daddr=Grand+Canyon+South+Rim%2C+AZ+to%3AGrand+Canyon+Inn%2C+Valle%2C+AZ&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <p class="map-link"><a href="https://www.google.com/maps/dir/Ramada+by+Wyndham+Williams,+AZ/Grand+Canyon+South+Rim,+AZ/Grand+Canyon+Inn,+Valle,+AZ" target="_blank" rel="noopener">Open in Google Maps ↗</a></p>
+  </section>
+  <h3 id="williams-grand-canyon-south-rim-valle">Williams → Grand Canyon South Rim → Valle</h3>
+  <ul>
+    <li>Spend the day on the South Rim: Mather Point, the Rim Trail, and a few viewpoints that fit your pace and daylight.</li>
+    <li>Keep the walk mostly along the rim; do not start a strenuous canyon descent late in the day.</li>
+    <li>Stay at the <a href="https://maps.app.goo.gl/TTk8QGg7FZUVnT2W8" target="_blank" rel="noopener">Grand Canyon Inn in Valle</a>. <strong>Booked for Nov 22–23 · $140.83.</strong></li>
+  </ul>
+
+  <h2 id="day-3-monday-november-23">Day 3 — Monday, November 23</h2>
+  <section class="day-map" aria-label="Day 3 map">
+    <h4>Valle → Desert View → Monument Valley → Kayenta</h4><p>Plan about 4–5 hours of driving, before stops and any guided tour.</p>
+    <iframe title="Google Maps: Valle to Monument Valley and Kayenta" src="https://maps.google.com/maps?saddr=Grand+Canyon+Inn%2C+Valle%2C+AZ&amp;daddr=Desert+View+Watchtower%2C+AZ+to%3AMonument+Valley+Navajo+Tribal+Park%2C+AZ+to%3AHampton+Inn+Kayenta%2C+AZ&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <p class="map-link"><a href="https://www.google.com/maps/dir/Grand+Canyon+Inn,+Valle,+AZ/Desert+View+Watchtower,+AZ/Monument+Valley+Navajo+Tribal+Park,+AZ/Hampton+Inn+Kayenta,+AZ" target="_blank" rel="noopener">Open in Google Maps ↗</a></p>
+  </section>
+  <h3 id="valle-grand-canyon-monument-valley">Valle → Grand Canyon → Monument Valley</h3>
+  <ul>
+    <li>Drive east along Desert View Drive and stop at accessible overlooks, including Desert View if conditions and timing allow.</li>
+    <li>Continue to Monument Valley for the main viewpoints. A guided Navajo tour is optional; check the operator's seasonal hours and road conditions before booking.</li>
+    <li>Stay at the <a href="https://maps.app.goo.gl/Pk7GYCLzFcxVPjtZ6" target="_blank" rel="noopener">Hampton Inn Kayenta</a>. <strong>Booked for Nov 23–24 · $147.41.</strong></li>
+  </ul>
+
+  <h2 id="day-4-tuesday-november-24">Day 4 — Tuesday, November 24</h2>
+  <section class="day-map" aria-label="Day 4 map">
+    <h4>Kayenta → Horseshoe Bend → Bryce Canyon City</h4><p>Google Maps estimates about 4 hr 16 min / 252 miles of driving, before the stop and breaks.</p>
+    <iframe title="Google Maps: Kayenta to Horseshoe Bend and Bryce Canyon City" src="https://maps.google.com/maps?saddr=Hampton+Inn+Kayenta%2C+US-160%2C+Kayenta%2C+AZ&amp;daddr=Horseshoe+Bend%2C+Arizona+to%3ABryce+Canyon+City%2C+UT&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <p class="map-link"><a href="https://www.google.com/maps/dir/Hampton+Inn+Kayenta,+US-160,+Kayenta,+AZ/Horseshoe+Bend,+Arizona/Bryce+Canyon+City,+UT" target="_blank" rel="noopener">Open in Google Maps ↗</a></p>
+  </section>
+  <h3 id="kayenta-horseshoe-bend-bryce">Kayenta → Horseshoe Bend → Bryce Canyon City</h3>
+  <ul>
+    <li>Start early enough to reach Bryce before dark. Keep the Page stop to Horseshoe Bend; allow 60–90 minutes for parking, the walk, and the overlook.</li>
+    <li>Plan for the current $10 passenger-vehicle parking fee at Horseshoe Bend. The lot is operated by the City of Page, and National Park passes do not cover it. Recheck the fee before departure.</li>
+    <li>Continue to Bryce Canyon City or Tropic and check in. Do not add Antelope Canyon or another Page-area attraction to this transfer day.</li>
+    <li><strong>Stay:</strong> <a href="https://maps.app.goo.gl/PyBuv29qHVMt1Doc7" target="_blank" rel="noopener">Bryce-area stay</a>. <strong>Booked for Nov 24–25 · $96.30.</strong></li>
+  </ul>
+  <p><a href="https://horseshoebend.com/plan-your-visit/" target="_blank" rel="noopener">Horseshoe Bend visit information</a> · <a href="https://home.nps.gov/glca/planyourvisit/horseshoe-bend.htm" target="_blank" rel="noopener">NPS parking and pass information</a></p>
+
+  <h2 id="day-5-wednesday-november-25">Day 5 — Wednesday, November 25</h2>
+  <section class="day-map" aria-label="Day 5 map">
+    <h4>Bryce Canyon → Springdale</h4><p>About 2–2.5 hours driving, before park stops.</p>
+    <iframe title="Google Maps: Bryce Canyon to Springdale" src="https://maps.google.com/maps?saddr=Bryce+Canyon+Visitor+Center%2C+Bryce+Canyon%2C+UT&amp;daddr=Springdale%2C+UT&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <p class="map-link"><a href="https://www.google.com/maps/dir/Bryce+Canyon+Visitor+Center,+Bryce+Canyon,+UT/Springdale,+UT" target="_blank" rel="noopener">Open in Google Maps ↗</a></p>
+  </section>
+  <h3 id="bryce-canyon-springdale">Bryce Canyon → Springdale</h3>
+  <ul>
+    <li>Use the morning and early afternoon for Bryce's amphitheater viewpoints, such as Sunrise Point, Sunset Point, and Inspiration Point.</li>
+    <li>If trails are open and not icy, consider Queen's Garden. Switch to rim viewpoints if footing is unsafe; traction devices may help on icy paths.</li>
+    <li>Drive to Springdale via UT-12, US-89, and UT-9. Check road conditions before leaving Bryce.</li>
+    <li><strong>Stay:</strong> <a href="https://maps.app.goo.gl/b4UZBkDZegxGtnQu8" target="_blank" rel="noopener">Springdale stay</a>. <strong>Booked for Nov 25–26 · $206.91.</strong> <a href="https://us2.cloudbeds.com/en/reservation/T095ev/?currency=usd&amp;checkin=2026-11-25&amp;checkout=2026-11-26&amp;guests=2" target="_blank" rel="noopener">Booking website ↗</a></li>
+  </ul>
+  <p><a href="https://www.nps.gov/brca/planyourvisit/winter.htm" target="_blank" rel="noopener">Bryce winter conditions</a></p>
+
+  <h2 id="day-6-thursday-november-26-thanksgiving">Day 6 — Thursday, November 26 · Thanksgiving</h2>
+  <section class="day-map" aria-label="Day 6 map">
+    <h4>Springdale → Zion National Park → Las Vegas</h4><p>Spend the morning and early afternoon in Zion, then allow about 2.5–3 hours to drive to Las Vegas.</p>
+    <iframe title="Google Maps: Springdale and Zion National Park" src="https://maps.google.com/maps?saddr=Springdale%2C+UT&amp;daddr=Zion+Canyon+Visitor+Center%2C+Springdale%2C+UT+to%3ALas+Vegas%2C+NV&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <p class="map-link"><a href="https://www.google.com/maps/dir/Springdale,+UT/Zion+Canyon+Visitor+Center,+Springdale,+UT/Las+Vegas,+NV" target="_blank" rel="noopener">Open in Google Maps ↗</a></p>
+  </section>
+  <h3 id="zion-national-park-thanksgiving">Zion National Park · Thanksgiving</h3>
+  <ul>
+    <li>Hike Canyon Overlook Trail and Lower Emerald Pool Trail in the morning. Allow time to travel between trailheads, then leave Zion in the early afternoon for Las Vegas.</li>
+    <li>The NPS schedule currently lists Zion Canyon shuttle service from Oct 25 through Nov 28: first shuttle at 7 AM, last from the Visitor Center at 5 PM, and last out of the canyon at 6:15 PM. The schedule can change; confirm it close to the trip.</li>
+    <li>Thanksgiving dining options may be limited. Reserve dinner ahead or bring food and snacks.</li>
+    <li>Leave Zion in the afternoon and drive about 2.5–3 hours to Las Vegas.</li>
+    <li><strong>Stay:</strong> <a href="https://maps.app.goo.gl/4UuLuPPULHDhGhr98" target="_blank" rel="noopener">Las Vegas stay</a>. <strong>Booked for Nov 26–27 · $127.71.</strong></li>
+  </ul>
+  <p><a href="https://www.nps.gov/zion/planyourvisit/zion-canyon-shuttle-system.htm" target="_blank" rel="noopener">Current Zion shuttle schedule</a></p>
+
+  <h2 id="day-7-friday-november-27">Day 7 — Friday, November 27</h2>
+  <section class="day-map" aria-label="Day 7 map">
+    <h4>Las Vegas → Harry Reid International Airport</h4><p>Allow extra time for the hotel-to-airport drive, rental-car return, and check-in.</p>
+    <iframe title="Google Maps: Las Vegas to Harry Reid International Airport" src="https://maps.google.com/maps?saddr=Las+Vegas%2C+NV&amp;daddr=Harry+Reid+International+Airport%2C+Las+Vegas%2C+NV&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <p class="map-link"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Las%20Vegas%2C%20NV&amp;destination=Harry%20Reid%20International%20Airport%2C%20Las%20Vegas%2C%20NV&amp;travelmode=driving" target="_blank" rel="noopener">Open in Google Maps ↗</a></p>
+  </section>
+  <h3 id="springdale-las-vegas-home">Las Vegas → home</h3>
+  <ul>
+    <li>For a flight at 3 PM or later, leave your Las Vegas hotel with extra time for the airport drive, fuel, rental return, and check-in.</li>
+    <li>Refuel according to the rental agreement, return the car at LAS, and fly home from Las Vegas.</li>
+  </ul>
+
+  <h2 id="expenses">Expenses</h2>
+  <p>Estimated expenses for two people. Booked lodging prices are shown as confirmed; estimated costs in the date table use an Est. prefix.</p>
+  <table>
+    <thead><tr><th>Date</th><th>Stay</th><th>Fuel</th><th>Food</th><th>Park / activity fees</th><th>Other</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Sat, Nov 21</th><td>$99.22</td><td>Est. $40.00</td><td>Est. $120.00</td><td>Est. $0.00</td><td>Est. $100.00</td></tr>
+      <tr><th scope="row">Sun, Nov 22</th><td>$140.83</td><td>Est. $40.00</td><td>Est. $120.00</td><td>Est. $0.00</td><td>Est. $0.00</td></tr>
+      <tr><th scope="row">Mon, Nov 23</th><td>$147.41</td><td>Est. $40.00</td><td>Est. $120.00</td><td>Est. $35.00</td><td>Est. $0.00</td></tr>
+      <tr><th scope="row">Tue, Nov 24</th><td>$96.30</td><td>Est. $40.00</td><td>Est. $120.00</td><td>Est. $10.00</td><td>Est. $0.00</td></tr>
+      <tr><th scope="row">Wed, Nov 25</th><td>$206.91</td><td>Est. $40.00</td><td>Est. $120.00</td><td>Est. $0.00</td><td>Est. $0.00</td></tr>
+      <tr><th scope="row">Thu, Nov 26</th><td>$127.71</td><td>Est. $40.00</td><td>Est. $120.00</td><td>Est. $0.00</td><td>Est. $0.00</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li><strong>Car rental (booked):</strong> $494.20; LAS pickup Nov 21 at 2:30 PM, return Nov 27 at 12:00 PM.</li>
+    <li><strong>National Park annual pass:</strong> Est. $80.00 for a U.S. resident pass; one pass covers both travelers in the rental vehicle. <a href="https://www.nps.gov/aboutus/nonresident-fees.htm" target="_blank" rel="noopener">NPS pass prices and coverage</a></li>
+    <li><strong>Final travel-day food:</strong> Est. $120.00 for two people; included in the seven-day food estimate.</li>
+  </ul>
+  <p>Fuel estimate: about 1,200 miles at 25 mpg and $5 per gallon, rounded to $240. Food estimate: $60 per person per day for seven days, or $840 for two. The table includes $720 for Nov 21–26 and the final-day estimate above. The $100 Other estimate is a trip-wide incidental-cost buffer. Park fees estimate $35 for two people and one vehicle at <a href="https://navajonationparks.org/where-to-go/monument-valley/" target="_blank" rel="noopener">Monument Valley</a> and $10 per vehicle at <a href="https://horseshoebend.com/parking-fees/" target="_blank" rel="noopener">Horseshoe Bend</a>; the annual pass covers Grand Canyon, Bryce Canyon, and Zion for eligible U.S. residents. The pass price assumes U.S. resident eligibility. <a href="https://gasprices.aaa.com/?state=AZ" target="_blank" rel="noopener">AAA Arizona</a>, <a href="https://gasprices.aaa.com/?state=NV" target="_blank" rel="noopener">Nevada</a>, and <a href="https://gasprices.aaa.com/?state=UT" target="_blank" rel="noopener">Utah</a> fuel averages inform the fuel estimate. Airfare and the optional Monument Valley tour are not included.</p>
+  <p><strong>Estimated total for two people (ground trip; airfare and optional tour excluded): Est. $2,617.58.</strong></p>
+
+  <h2 id="booking-budget-and-practical-details">Booking, budget, and practical details</h2>
+  <h3 id="accommodation-plan">Accommodation plan</h3>
+  <table>
+    <thead><tr><th>Night</th><th>Stay</th><th>Status / cost</th></tr></thead>
+    <tbody>
+      <tr><td>Nov 21</td><td><a href="https://maps.app.goo.gl/fXGqTTaxtPZ1YKCS7" target="_blank" rel="noopener">Ramada by Wyndham Williams/Grand Canyon Area</a></td><td>Booked Nov 21–22 · $99.22</td></tr>
+      <tr><td>Nov 22</td><td><a href="https://maps.app.goo.gl/TTk8QGg7FZUVnT2W8" target="_blank" rel="noopener">Grand Canyon Inn, Valle</a></td><td>Booked Nov 22–23 · $140.83</td></tr>
+      <tr><td>Nov 23</td><td><a href="https://maps.app.goo.gl/Pk7GYCLzFcxVPjtZ6" target="_blank" rel="noopener">Hampton Inn Kayenta</a></td><td>Booked Nov 23–24 · $147.41</td></tr>
+      <tr><td>Nov 24</td><td><a href="https://maps.app.goo.gl/PyBuv29qHVMt1Doc7" target="_blank" rel="noopener">Bryce-area stay</a></td><td>Booked Nov 24–25 · $96.30</td></tr>
+      <tr><td>Nov 25</td><td><a href="https://maps.app.goo.gl/b4UZBkDZegxGtnQu8" target="_blank" rel="noopener">Springdale stay</a><br><a href="https://us2.cloudbeds.com/en/reservation/T095ev/?currency=usd&amp;checkin=2026-11-25&amp;checkout=2026-11-26&amp;guests=2" target="_blank" rel="noopener">Booking website ↗</a></td><td>Booked Nov 25–26 · $206.91</td></tr>
+      <tr><td>Nov 26</td><td><a href="https://maps.app.goo.gl/4UuLuPPULHDhGhr98" target="_blank" rel="noopener">Las Vegas stay</a></td><td>Booked Nov 26–27 · $127.71</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Known prices for booked stays total $818.38</strong> for all six nights, Nov 21–26.</p>
+
+  <h3 id="essential-preparation-checklist">Preparation checklist</h3>
+  <ul>
+    <li>Book a Las Vegas return flight for Nov 27 at 3 PM or later.</li>
+    <li>Recheck Bryce road, trail, and weather conditions before driving; snow can temporarily close the upper park road.</li>
+    <li>Confirm Zion shuttle hours for the Nov 26 half day and Thanksgiving dining availability.</li>
+    <li>Bring warm layers, gloves, a beanie, rain shell, and grippy footwear; carry water, snacks, and offline maps.</li>
+    <li>Check current Monument Valley hours and tour availability if you want a guided visit.</li>
+  </ul>
+
+  <h2 id="final-trip-summary">Final trip summary</h2>
+  <table>
+    <thead><tr><th>Date</th><th>Plan</th><th>Drive estimate</th><th>Overnight</th></tr></thead>
+    <tbody>
+      <tr><td>Sat, Nov 21</td><td>Arrive LAS; drive to Williams</td><td>3.5–4 hr after pickup</td><td>Williams · booked</td></tr>
+      <tr><td>Sun, Nov 22</td><td>Grand Canyon South Rim</td><td>About 1 hr to rim; about 45 min to Valle</td><td>Grand Canyon Inn · booked $140.83</td></tr>
+      <tr><td>Mon, Nov 23</td><td>Desert View Drive and Monument Valley</td><td>About 4–5 hr, plus stops</td><td>Hampton Inn Kayenta · booked $147.41</td></tr>
+      <tr><td>Tue, Nov 24</td><td>Horseshoe Bend, then Bryce area</td><td>About 4 hr 16 min / 252 mi before stops</td><td>Bryce area · booked $96.30</td></tr>
+      <tr><td>Wed, Nov 25</td><td>Bryce viewpoints and optional Queen's Garden; drive to Springdale</td><td>About 2–2.5 hr, plus park time</td><td>Springdale · booked $206.91</td></tr>
+      <tr><td>Thu, Nov 26</td><td>Hike Canyon Overlook Trail and Lower Emerald Pool Trail; drive to Las Vegas in the afternoon</td><td>About 2.5–3 hr from Zion to Las Vegas</td><td>Las Vegas · booked $127.71</td></tr>
+      <tr><td>Fri, Nov 27</td><td>Drive from Las Vegas to LAS; return rental car; fly home</td><td>Short local drive, plus airport time</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="google-maps-route">Google Maps route</h2>
+  <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Harry+Reid+International+Airport,+Las+Vegas,+NV&amp;destination=Harry+Reid+International+Airport,+Las+Vegas,+NV&amp;travelmode=driving&amp;waypoints=Williams,+AZ%7CGrand+Canyon+South+Rim,+AZ%7CGrand+Canyon+Inn,+Valle,+AZ%7CMonument+Valley+Navajo+Tribal+Park,+AZ%7CHampton+Inn+Kayenta,+AZ%7CHorseshoe+Bend,+Arizona%7CBryce+Canyon+City,+UT%7CSpringdale,+UT" target="_blank" rel="noopener">Open the revised seven-day route in Google Maps ↗</a></p>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m76!1m12!1m3!1d1643235.4559201365!2d-113.96843220621685!3d36.44681888525423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m61!3e0!4m5!1s0x80c8c59f1f049c5d%3A0x471359241ec41e1e!2sHarry%20Reid%20International%20Airport%2C%205757%20Wayne%20Newton%20Blvd%2C%20Las%20Vegas%2C%20NV%2089119!3m2!1d36.0830907!2d-115.1482238!4m5!1s0x87329ee95301a555%3A0x1da5e7c7cdc05386!2sWilliams%2C%20Arizona%2086046!3m2!1d35.249456599999995!2d-112.19100309999999!4m5!1s0x873312ae759b4d15%3A0x1f38a9bec9912029!2sGrand%20Canyon%20National%20Park%2C%20Arizona!3m2!1d36.2678855!2d-112.3535253!4m5!1s0x8732eeb814247813%3A0x5a2156fa5fb561f3!2sGrand%20Canyon%20Inn%2C%20257%20AZ-64%2C%20Williams%2C%20AZ%2086046!3m2!1d35.653512899999996!2d-112.138033!4m5!1s0x87372e4373ea5e0f%3A0x9cef7d251e9ff829!2sMonument%20Valley%20Tribal%20Park%20Visitor%20Center%2C%20U.S.%20163%20Scenic%2C%20Oljato-Monument%20Valley%2C%20UT%2084536!3m2!1d36.9820968!2d-110.11186149999999!4m5!1s0x8730d9ef8fa9aa1b%3A0xcebe491978665e99!2sHampton%20Inn%20Kayenta%2C%20US-160%2C%20Kayenta%2C%20AZ%2086033!3m2!1d36.7072617!2d-110.2538689!4m5!1s0x87346ced52b21091%3A0xb623646960566829!2sHorseshoe%20Bend%2C%20Arizona%2086040!3m2!1d36.879061199999995!2d-111.5103627!4m5!1s0x8735691fee384c6d%3A0x759c376c7a49fd62!2sBryce%20Canyon%20City%2C%20Utah!3m2!1d37.6739665!2d-112.1564018!4m5!1s0x80ca8d360b511ef1%3A0xd9b264a5aeb7087a!2sSpringdale%2C%20Utah!3m2!1d37.188871299999995!2d-112.99855149999999!4m5!1s0x80c8c59f1f049c5d%3A0x471359241ec41e1e!2sHarry%20Reid%20International%20Airport%2C%205757%20Wayne%20Newton%20Blvd%2C%20Las%20Vegas%2C%20NV%2089119!3m2!1d36.0830907!2d-115.1482238!5e0!3m2!1sen!2sus!4v1792208488381!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <p>Reconfirm park access, shuttle hours, fees, road conditions, lodging terms, and the return-flight timing close to departure.</p>
+</article>
+      <footer>Trip details and estimates are reproduced from the planning document. Reconfirm 2026 park access, fees, hours, weather, and tour availability before departure.</footer>
+    </main>
+  </div>
+  <script>
+    (() => {
+      const panel = document.getElementById('tocPanel');
+      const mobile = window.matchMedia('(max-width: 920px)');
+      const syncPanel = () => {
+        if (mobile.matches) panel.removeAttribute('open');
+        else panel.setAttribute('open', '');
+      };
+      syncPanel();
+      mobile.addEventListener('change', syncPanel);
+      const links = Array.from(document.querySelectorAll('.toc-link'));
+      links.forEach(link => link.addEventListener('click', () => {
+        if (mobile.matches) panel.open = false;
+      }));
+      if ('IntersectionObserver' in window) {
+        const byId = new Map(links.map(link => [decodeURIComponent(link.hash.slice(1)), link]));
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            links.forEach(link => { link.classList.remove('active'); link.removeAttribute('aria-current'); });
+            const current = byId.get(entry.target.id);
+            if (current) { current.classList.add('active'); current.setAttribute('aria-current', 'location'); }
+          });
+        }, { rootMargin: '-8% 0px -82% 0px' });
+        document.querySelectorAll('article h2[id], article h3[id]').forEach(heading => observer.observe(heading));
+      }
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

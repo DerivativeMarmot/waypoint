@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f1e8">
+  <meta name="description" content="A home for the road trips and travel plans gathered in this collection.">
+  <title>Travel Plans · Waypoint</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20352d;
+      --muted: #68766e;
+      --paper: #fffefa;
+      --canvas: #f3f1e8;
+      --line: #e1dfd4;
+      --pine: #285a49;
+      --pine-deep: #173d32;
+      --clay: #b86846;
+      --gold: #e3b768;
+      --shadow: 0 20px 54px rgba(33, 52, 43, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 93% 7%, rgba(229, 195, 128, .18), transparent 29rem),
+        var(--canvas);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .skip-link { position: absolute; left: 16px; top: -60px; z-index: 10; padding: 10px 14px; background: white; border-radius: 8px; }
+    .skip-link:focus { top: 12px; }
+    .shell { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+    .site-header {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid rgba(32, 53, 45, .12);
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--pine-deep); text-decoration: none; }
+    .brand-mark {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border: 1px solid rgba(40, 90, 73, .28); border-radius: 50%;
+      color: var(--clay); font-family: Georgia, serif; font-size: 22px;
+    }
+    .brand-name { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .header-note { color: var(--muted); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+    .hero {
+      position: relative;
+      min-height: 390px;
+      margin: 34px 0 74px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      border-radius: 24px;
+      color: #f8f5eb;
+      background: linear-gradient(118deg, #173d32 0%, #285a49 61%, #52715b 100%);
+      box-shadow: var(--shadow);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .2;
+      background-image: repeating-radial-gradient(ellipse at 82% 45%, transparent 0 25px, rgba(255,255,255,.18) 26px 27px, transparent 28px 47px);
+      mask-image: linear-gradient(90deg, transparent 35%, black 100%);
+    }
+    .hero-copy { position: relative; z-index: 1; padding: 52px clamp(30px, 6vw, 76px); }
+    .eyebrow { margin: 0 0 16px; color: #f0ca82; font-size: 11px; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 510px;
+      margin-bottom: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(45px, 6vw, 72px);
+      font-weight: 500;
+      letter-spacing: -.055em;
+      line-height: .99;
+    }
+    .hero-copy > p:not(.eyebrow) { max-width: 420px; margin-bottom: 27px; color: rgba(248,245,235,.78); font-size: 15px; }
+    .hero-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 11px 15px; border: 1px solid rgba(255,255,255,.36); border-radius: 999px;
+      color: white; font-size: 13px; font-weight: 700; text-decoration: none;
+      transition: background .18s ease, transform .18s ease;
+    }
+    .hero-link:hover { transform: translateY(-2px); background: rgba(255,255,255,.1); }
+    .hero-link svg, .card-link svg { width: 16px; height: 16px; }
+    .hero-art { position: absolute; inset: 0 0 0 47%; display: flex; align-items: end; }
+    .hero-art svg { width: 100%; height: 100%; min-height: 390px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+    .section-heading .eyebrow { margin-bottom: 7px; color: var(--clay); }
+    .section-heading h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(29px, 3vw, 38px); font-weight: 500; letter-spacing: -.035em; }
+    .section-count { color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .trip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 22px; }
+    .trip-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(33, 52, 43, .045);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .trip-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .trip-art {
+      position: relative;
+      height: 178px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #d9e1d4 0%, #f0d39e 100%);
+    }
+    .trip-art svg { display: block; width: 100%; height: 100%; }
+    .trip-date {
+      position: absolute; top: 15px; left: 16px;
+      padding: 6px 10px; border: 1px solid rgba(255,255,255,.58); border-radius: 999px;
+      color: #fffdf8; background: rgba(29, 61, 49, .78); backdrop-filter: blur(8px);
+      font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+    }
+    .trip-content { padding: 23px 24px 22px; }
+    .trip-region { margin-bottom: 8px; color: var(--clay); font-size: 10px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .trip-content h3 { margin-bottom: 10px; font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 500; letter-spacing: -.03em; line-height: 1.12; }
+    .route { min-height: 48px; margin-bottom: 19px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .trip-meta { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 15px; border-top: 1px solid var(--line); }
+    .trip-meta span { padding: 5px 9px; border-radius: 999px; color: #43564b; background: #edf1e9; font-size: 11px; font-weight: 650; }
+    .card-link {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);
+      color: var(--pine); font-size: 13px; font-weight: 800; text-decoration: none;
+    }
+    .card-link svg { transition: transform .18s ease; }
+    .card-link:hover svg { transform: translateX(4px); }
+    .quiet-note { margin: 30px 0 64px; color: var(--muted); font-size: 12px; }
+    footer { padding: 18px 0 30px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 30px, 620px); }
+      .site-header { min-height: 70px; }
+      .header-note { font-size: 10px; }
+      .hero { min-height: 520px; margin: 20px 0 52px; grid-template-columns: 1fr; align-items: start; }
+      .hero-copy { padding: 38px 28px; }
+      .hero-art { inset: auto 0 0 0; height: 235px; }
+      .hero-art svg { min-height: 0; }
+      .hero::after { mask-image: linear-gradient(180deg, transparent 16%, black 100%); }
+      .trip-art { height: 165px; }
+      .quiet-note { margin-bottom: 44px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#plans">Skip to travel plans</a>
+  <header class="site-header shell">
+    <a class="brand" href="./index.html" aria-label="Waypoint travel plans home">
+      <span class="brand-mark" aria-hidden="true">✳</span>
+      <span class="brand-name">Waypoint · Travel plans</span>
+    </a>
+    <span class="header-note">A collection of journeys</span>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Routes worth remembering</p>
+        <h1 id="page-title">Make room for the road.</h1>
+        <p>Day-by-day plans, useful details, and the places connecting them—all gathered in one place.</p>
+        <a class="hero-link" href="#plans">Explore the plans
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 650 440" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="455" cy="110" r="47" fill="#E8BD72"/>
+          <path d="M215 302 365 126l151 176H215Z" fill="#C7825A" opacity=".92"/>
+          <path d="m328 302 177-223 185 223H328Z" fill="#9C684F"/>
+          <path d="m451 146 54-67 57 68-42-17-20 21-21-17-28 12Z" fill="#F3DDAE" opacity=".88"/>
+          <path d="M0 305 170 185l115 120 113-79 122 99H0Z" fill="#6F8063"/>
+          <path d="M0 326c123-38 187 4 275-5 110-11 163-54 252-24 45 15 78 18 123 0v143H0V326Z" fill="#476D55"/>
+          <path d="M0 366c113-39 195 30 306-4 106-33 181-39 344-8v86H0v-74Z" fill="#294F40"/>
+          <path d="M28 401c135-44 193-4 290-13 86-8 165-48 290-15" fill="none" stroke="#E6BD79" stroke-width="3" stroke-dasharray="4 10" opacity=".9"/>
+          <circle cx="28" cy="401" r="7" fill="#FFF9E8" stroke="#B86846" stroke-width="4"/>
+          <circle cx="608" cy="373" r="7" fill="#FFF9E8" stroke="#B86846" stroke-width="4"/>
+        </svg>
+      </div>
+    </section>
+
+    <section id="plans" aria-labelledby="plans-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The collection</p>
+          <h2 id="plans-title">Travel plans</h2>
+        </div>
+        <span class="section-count">01 itinerary</span>
+      </div>
+
+      <div class="trip-grid">
+        <article class="trip-card">
+          <div class="trip-art" aria-hidden="true">
+            <svg viewBox="0 0 700 260" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="700" height="260" fill="#CFDCCF"/>
+              <circle cx="558" cy="54" r="29" fill="#E8B970"/>
+              <path d="M0 186 150 68l117 118 107-86 153 106H0Z" fill="#9E785D"/>
+              <path d="m282 184 150-145 142 145H282Z" fill="#C17B58"/>
+              <path d="m394 82 38-43 40 42-31-11-10 15-13-13-24 10Z" fill="#F1DBB0"/>
+              <path d="M0 201c126-26 201 22 299 1 110-24 211-4 401 15v43H0v-59Z" fill="#526D58"/>
+              <path d="M0 229c136-34 246 12 340-3 127-20 221-25 360 2v32H0v-31Z" fill="#315844"/>
+              <path d="M66 236c115-30 181-10 282-11 98-1 143-28 252-11" fill="none" stroke="#F0C87F" stroke-width="2.5" stroke-dasharray="5 9"/>
+              <circle cx="66" cy="236" r="6" fill="#fff9eb" stroke="#B86846" stroke-width="3"/>
+              <circle cx="600" cy="214" r="6" fill="#fff9eb" stroke="#B86846" stroke-width="3"/>
+            </svg>
+            <span class="trip-date">November 21–27 · 2026</span>
+          </div>
+          <div class="trip-content">
+            <p class="trip-region">Arizona · Utah · Nevada</p>
+            <h3>Southwest National Parks Road Trip</h3>
+            <p class="route">Las Vegas · Grand Canyon · Monument Valley · Bryce Canyon · Zion</p>
+            <div class="trip-meta" aria-label="Trip details">
+              <span>7 days</span><span>6 nights</span><span>2 travelers</span>
+            </div>
+            <a class="card-link" href="./southwest-national-parks-trip.html">
+              <span>Open itinerary</span>
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+      <p class="quiet-note">Plans are organized here as they come together. Choose a card to open its full itinerary.</p>
+    </section>
+  </main>
+
+  <footer class="shell">Waypoint · Travel plans</footer>
+</body>
+</html>
